@@ -51,9 +51,9 @@ float Position = 0;
 int Turn;
 
 int ReferencePosition;
-float kp = 5;
-float ki;
-float kd;
+float kp = 2;
+float ki = 0.11;
+float kd = 0.8;
 float e;
 float eintegral;
 float edifferential;
@@ -373,6 +373,7 @@ float PIDControl()
 	/*Error*/
 	e = ReferencePosition - Position;
 	/*Integral Error*/
+	eintegral = 0;
 	eintegral = eintegral+e*100;
 	/*Differential Error*/
 	edifferential = (e-eprev)/100;
